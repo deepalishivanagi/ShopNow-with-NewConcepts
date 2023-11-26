@@ -2,12 +2,15 @@ import "./style2.css";
 import Item from "./Item.js";
 import Sidebar from "./Sidebar";
 import { useSelector } from "react-redux";
+import { lazy } from "react";
+import { Suspense } from "react";
 
 export default function ListOfItems() {
   var indents = [];
   var ShowingDataArray = [];
-  const state = useSelector((state) => state.AppState);
+  const state = useSelector((state) => state.AppState.DataArray);
   const statefilt = useSelector((state) => state.FilterState);
+  const SideBarComponent = lazy(()=>import('./Sidebar'));
 
   function getDataAfterPriceFilter(datalist) {
     if (
@@ -113,7 +116,7 @@ export default function ListOfItems() {
   }
 
   function CreateShowingDataArray() {
-    let data1 = getDataAfterPriceFilter(state.DataArray);
+    let data1 = getDataAfterPriceFilter(state);
 
     let data2 = getDataAfterSortPriceFilter(data1);
 
@@ -138,6 +141,9 @@ export default function ListOfItems() {
 
   return (
     <div className="ListOfItems-Main">
+      {/* <Suspense fallback={<div>Loading page....</div>}>
+        <SideBarComponent/>
+      </Suspense> */}
       <Sidebar />
       <div className="items-container">
         {indents.map((item, index) => {
