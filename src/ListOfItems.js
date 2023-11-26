@@ -141,10 +141,10 @@ export default function ListOfItems() {
 
   return (
     <div className="ListOfItems-Main">
-      {/* <Suspense fallback={<div>Loading page....</div>}>
+      <Suspense fallback={<div>Loading page....</div>}>
         <SideBarComponent/>
-      </Suspense> */}
-      <Sidebar />
+      </Suspense>
+      {/* <Sidebar /> */}
       <div className="items-container">
         {indents.map((item, index) => {
           return (

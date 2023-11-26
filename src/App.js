@@ -47,7 +47,7 @@ export default function App() {
         <nav>
           <div>
             <Link class="link" to="/">
-            <h1>ShopNow1-deepa</h1>
+              <h1>ShopNow</h1>
             </Link>
             {/* <Link class="link" to="/ItemBill">
               {" "}
@@ -56,26 +56,22 @@ export default function App() {
           </div>
           <div>
             <Link to="/Wishlist">
-              <FavoriteBorderIcon sx={{ fontSize: "xxx-large",color:"white" }} />
+              <FavoriteBorderIcon sx={{ fontSize: "xxx-large", color: "white" }} />
             </Link>
             <Cart />
           </div>
         </nav>
         <Suspense fallback={<div>Loading....</div>}>
-
-        <Routes>
-          <Route path="/" element={<ListOfItems />} />
-          <Route path="/ItemBill" element={<ItemBill />} />
-          {/* <Route path="/ItemBill2" element={<ItemBill />} /> */}
-          <Route path="/Wishlist" element={<Wishlist />} />
-          {/* <Route path="/Wishlist2" element={<Wishlist />} /> */}
-          <Route path="/ItemDetailPage/:Item_id" element={<ItemDetailPage />} />
-          <Route path="/cart" element={<CartPage/>}/>
-          <Route path="*" element={<ListOfItems />}  />
-
-
-
-        </Routes>
+          <Routes>
+            <Route path="/" element={<ListOfItems />} />
+            <Route path="/ItemBill" element={<ItemBill />} />
+            {/* <Route path="/ItemBill2" element={<ItemBill />} /> */}
+            <Route path="/Wishlist" element={<Wishlist />} />
+            {/* <Route path="/Wishlist2" element={<Wishlist />} /> */}
+            <Route path="/ItemDetailPage/:Item_id" element={<ItemDetailPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="*" element={<ListOfItems />} />
+          </Routes>
         </Suspense>
       </Router>
     </div>
